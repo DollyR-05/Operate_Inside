@@ -1,0 +1,73 @@
+/* --- Root Container Style (Deep Space Background) --- */
+.root {
+    -fx-background-color: #1a1a2e; /* Deep dark blue/purple */
+    -fx-padding: 10px;
+}
+
+/* --- Navigation Buttons (Back/Forward) --- */
+.nav-button {
+    -fx-background-color: #3b4a60; /* Soft dark gray-blue */
+    -fx-text-fill: #e8e8e8;
+    -fx-font-size: 14px;
+    -fx-padding: 5px 10px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+}
+
+.nav-button:hover {
+    -fx-background-color: #556680;
+}
+
+/* --- Breadcrumb Bar Styling --- */
+#breadcrumbBar {
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 5px;
+}
+
+/* --- Breadcrumb Buttons (Crumb elements created in Controller) --- */
+.breadcrumb-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e8e8e8;
+    -fx-font-size: 12px;
+    -fx-padding: 2px 5px;
+    -fx-cursor: hand;
+}
+
+.breadcrumb-button:hover {
+    -fx-text-fill: #ffffff;
+    -fx-underline: true;
+}
+
+/* Style for the currently selected/last crumb */
+.breadcrumb-button.current-crumb {
+    -fx-text-fill: #00bcd4; /* Bright Teal accent color for current folder */
+    -fx-font-weight: bold;
+}
+
+/* --- Separator Label Styling (e.g., > ) --- */
+.separator-label {
+    -fx-text-fill: #00bcd4; /* Use Teal accent color */
+    -fx-font-size: 14px;
+}
+
+
+/* --- File List Styling --- */
+#fileList {
+    -fx-background-color: #1a1a2e; /* Match root background */
+    -fx-border-color: #3b4a60;
+    -fx-border-width: 1px;
+}
+
+/* Individual Cell in the ListView */
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e8e8e8;
+    -fx-padding: 5px 10px;
+    -fx-font-size: 14px;
+}
+
+/* Selected item style */
+.list-cell:filled:selected {
+    -fx-background-color: #00bcd4; /* Bright teal highlight on selection */
+    -fx-text-fill: #1e1e1e; /* Dark text for contrast */
+}

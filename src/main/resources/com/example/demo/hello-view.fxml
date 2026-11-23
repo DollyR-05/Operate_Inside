@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<VBox fx:controller="com.example.demo.HelloController" xmlns:fx="http://javafx.com/fxml/1" style="-fx-background-color: black;">
+    <padding>
+        <Insets top="5" right="5" bottom="5" left="5"/>
+    </padding>
+    <HBox fx:id="taskbar" xmlns="http://javafx.com/javafx/8" spacing="15" alignment="CENTER_LEFT" >
+
+        <VBox spacing="0" alignment="CENTER">
+            <Label fx:id="timeLabel" style="-fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+            <Label fx:id="dateLabel" style="-fx-text-fill: white; -fx-font-size: 10px;"/>
+        </VBox>
+
+        <HBox fx:id="appTabs" spacing="15" alignment="CENTER_LEFT">
+            <Button text="Chrome" fx:id="chromeButton" onAction="#ChromeClick"
+                    style="-fx-background-color: black; -fx-text-fill: white; -fx-border-color: transparent;">
+                <graphic>
+                    <ImageView fitWidth="25" fitHeight="24">
+                        <image>
+                            <Image url="@ChromeImg.jpeg"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Label text="📁 File Explorer" style="-fx-text-fill: white; -fx-font-weight: bold;" onMouseClicked="#openFileExplorer"/>
+            <Label text="⚙ Process Manager" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+        </HBox>
+
+        <VBox>
+            <Label text="GoogleSearch" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+            <HBox fx:id="searchBox" spacing="5" alignment="CENTER_LEFT" visible="false">
+                <TextField fx:id="googleSearch" promptText="Search Google..." prefWidth="200"/>
+                <Button text="Search" fx:id="searchButton"/>
+            </HBox>
+        </VBox>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <HBox fx:id="systemIcons" spacing="8" alignment="CENTER_RIGHT">
+            <Label fx:id="batteryLabel" text="🔋100%" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+
+            <Label fx:id="Wifi" text="🚫" style="-fx-text-fill: white; -fx-font-weight: bold;" onMouseClicked="#internet"/>
+            <Label text="🔊" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Label text="🔔" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+        </HBox>
+    </HBox>
+
+
+</VBox>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.demo.FileExplorerController"
+      spacing="10" style="-fx-background-color: #1e1e1e; -fx-padding: 10;">
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="⬅ Back" onAction="#goBack"
+                style="-fx-background-color: #3c3f41; -fx-text-fill: white;"/>
+        <Button text="Forward" onAction="#goForward" style="-fx-background-color: #3c3f41; -fx-text-fill: white;" />
+        <HBox fx:id="breadcrumbBar" spacing="5"/>
+    </HBox>
+
+    <ListView fx:id="fileList" onMouseClicked="#handleDoubleClick" prefHeight="400" prefWidth="600"/>
+</VBox>

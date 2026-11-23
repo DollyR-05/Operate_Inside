@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<StackPane fx:controller="com.example.demo.DesktopController"
+           xmlns:fx="http://javafx.com/fxml/1"
+           prefWidth="900" prefHeight="600">
+
+    <ImageView fx:id="backgroundImage" pickOnBounds="true" preserveRatio="false">
+        <image>
+            <Image url="@operate.png"/>
+        </image>
+        <StackPane.margin>
+            <Insets top="0" right="0" bottom="0" left="0"/>
+        </StackPane.margin>
+    </ImageView>
+
+    <VBox spacing="0" style="-fx-padding: 5;">
+        <HBox fx:id="taskbar" spacing="15" alignment="CENTER_LEFT"
+              style="-fx-background-color: rgba(0,0,0,0.6); -fx-padding: 5;">
+
+            <VBox spacing="0" alignment="CENTER" style="-fx-text-fill: white; -fx-font-weight: bold;">
+                <Label fx:id="timeLabel" style="-fx-text-fill: white; -fx-font-size: 14px;"/>
+                <Label fx:id="dateLabel" style="-fx-text-fill: white; -fx-font-size: 10px;"/>
+            </VBox>
+
+            <HBox fx:id="appTabs" spacing="15" alignment="CENTER_LEFT">
+                <Button fx:id="chromeButton" text="Chrome" onAction="#ChromeClick"
+                        style="-fx-background-color: black; -fx-text-fill: white;">
+                    <graphic>
+                        <ImageView fitWidth="25" fitHeight="24">
+                            <image>
+                                <Image url="@ChromeImg.jpeg"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Label text="📁 File Explorer" style="-fx-text-fill: white; cursor: hand;" onMouseClicked="#openFileExplorer"/>
+                <Label text="⚙ Process Manager" style="-fx-text-fill: white;"/>
+            </HBox>
+
+            <VBox fx:id="googleSearchContainer" alignment="CENTER_LEFT">
+                <Label text="Google Search" style="-fx-text-fill: white;"/>
+                <HBox fx:id="searchBox" spacing="5" alignment="CENTER_LEFT" visible="false">
+                    <TextField fx:id="googleSearch" promptText="Search Google..." prefWidth="200"/>
+                    <Button fx:id="searchButton" text="Search"/>
+                </HBox>
+            </VBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <HBox fx:id="systemIcons" spacing="8" alignment="CENTER_RIGHT">
+                <Label text="🔋100%" style="-fx-text-fill: white;"/>
+                <Label fx:id="Wifi" text="🚫" style="-fx-text-fill: white; cursor: hand;" onMouseClicked="#internet"/>
+                <Label text="🔊" style="-fx-text-fill: white;"/>
+                <Label text="🔔" style="-fx-text-fill: white;"/>
+            </HBox>
+
+        </HBox>
+
+        <Region VBox.vgrow="ALWAYS"/>
+
+        <HBox alignment="CENTER" spacing="40" style="-fx-padding: 10;">
+
+            <VBox alignment="CENTER" spacing="5" onMouseClicked="#openFileExplorer" style="-fx-cursor: hand;">
+                <ImageView fitWidth="50" fitHeight="50">
+                    <image>
+                        <Image url="@file.png"/>
+                    </image>
+                </ImageView>
+                <Label text="File Explorer" style="-fx-text-fill: black;"/> </VBox>
+
+            <VBox alignment="CENTER" spacing="5" onMouseClicked="#ChromeClick" style="-fx-cursor: hand;">
+                <ImageView fitWidth="50" fitHeight="50">
+                    <image>
+                        <Image url="@BROWSER.png"/>
+                    </image>
+                </ImageView>
+                <Label text="Browssy" style="-fx-text-fill: black;"/> </VBox>
+
+            <VBox alignment="CENTER" spacing="5" onMouseClicked="#openCalculator" style="-fx-cursor: hand;">
+                <ImageView fitWidth="50" fitHeight="50">
+                    <image>
+                        <Image url="@Calculator.jpeg"/>
+                    </image>
+                </ImageView>
+                <Label text="Calculator" style="-fx-text-fill: black;"/> </VBox>
+
+            <VBox alignment="CENTER" spacing="5" onMouseClicked="#openProcessManager" style="-fx-cursor: hand;">
+                <ImageView fitWidth="50" fitHeight="50">
+                    <image>
+                        <Image url="@scheduler.png"/>
+                    </image>
+                </ImageView>
+                <Label text="Scheduler" style="-fx-text-fill: black;"/> </VBox>
+        </HBox>
+    </VBox>
+</StackPane>

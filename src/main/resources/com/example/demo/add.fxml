@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<StackPane fx:controller="com.example.demo.HelloController"
+           xmlns:fx="http://javafx.com/fxml/1"
+           prefWidth="900" prefHeight="600">
+
+    <!-- Background Image -->
+    <ImageView fitWidth="900" fitHeight="600" pickOnBounds="true" preserveRatio="false">
+        <image>
+            <Image url="@operate.jpg"/>
+        </image>
+    </ImageView>
+
+    <!-- VBox for content -->
+    <VBox spacing="0" style="-fx-padding: 5;">
+        <HBox fx:id="taskbar" spacing="15" alignment="CENTER_LEFT"
+              style="-fx-background-color: rgba(0,0,0,0.6); -fx-padding: 5;">
+
+            <!-- Time and Date -->
+            <VBox spacing="0" alignment="CENTER" style="-fx-text-fill: white; -fx-font-weight: bold;">
+                <Label fx:id="timeLabel" style="-fx-text-fill: white; -fx-font-size: 14px;"/>
+                <Label fx:id="dateLabel" style="-fx-text-fill: white; -fx-font-size: 10px;"/>
+            </VBox>
+
+            <!-- App Tabs -->
+            <HBox fx:id="appTabs" spacing="15" alignment="CENTER_LEFT">
+                <Button fx:id="chromeButton" text="Chrome" onAction="#ChromeClick"
+                        style="-fx-background-color: black; -fx-text-fill: white;">
+                    <graphic>
+                        <ImageView fitWidth="25" fitHeight="24">
+                            <image>
+                                <Image url="@ChromeImg.jpeg"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Label text="📁 File Explorer" style="-fx-text-fill: white; cursor: hand;" onMouseClicked="#openFileExplorer"/>
+                <Label text="⚙ Process Manager" style="-fx-text-fill: white;"/>
+            </HBox>
+
+            <!-- Google Search Box -->
+            <VBox alignment="CENTER_LEFT">
+                <Label text="Google Search" style="-fx-text-fill: white;"/>
+                <HBox fx:id="searchBox" spacing="5" alignment="CENTER_LEFT" visible="false">
+                    <TextField fx:id="googleSearch" promptText="Search Google..." prefWidth="200"/>
+                    <Button fx:id="searchButton" text="Search"/>
+                </HBox>
+            </VBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- System Icons -->
+            <HBox fx:id="systemIcons" spacing="8" alignment="CENTER_RIGHT">
+                <Label text="🔋100%" style="-fx-text-fill: white;"/>
+                <Label fx:id="Wifi" text="🚫" style="-fx-text-fill: white; cursor: hand;" onMouseClicked="#internet"/>
+                <Label text="🔊" style="-fx-text-fill: white;"/>
+                <Label text="🔔" style="-fx-text-fill: white;"/>
+            </HBox>
+
+        </HBox>
+    </VBox>
+</StackPane>

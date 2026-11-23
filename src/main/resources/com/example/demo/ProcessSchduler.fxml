@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.demo.ProcessSchedulerController"
+      spacing="15" alignment="CENTER" styleClass="root">
+
+    <VBox spacing="10" styleClass="control-section">
+        <Label text="Scheduler Controls" styleClass="section-header"/>
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <TextField fx:id="processNameField" promptText="Process Name" prefWidth="150"/>
+            <TextField fx:id="burstTimeField" promptText="Burst Time" prefWidth="100"/>
+            <TextField fx:id="parameterField" promptText="Time Slice/Param" prefWidth="120"/>
+            <ComboBox fx:id="timeUnitComboBox" prefWidth="120"/>
+            <Button text="Add Process" onAction="#handleAddProcess" styleClass="add-btn"/>
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <ComboBox fx:id="algorithmComboBox" prefWidth="150"/>
+            <Button fx:id="startBtn" text="Start Scheduling" onAction="#handleStartScheduling" styleClass="start-btn"/>
+            <Button fx:id="stopBtn" text="Pause" onAction="#handleStopScheduling" styleClass="pause-btn"/>
+            <Button fx:id="terminateBtn" text="Terminate Selected" onAction="#handleTerminateProcess" styleClass="terminate-btn"/>
+            <Button fx:id="deleteSelectedBtn" text="Delete Selected" onAction="#handleDeleteSelectedProcess" styleClass="delete-btn"/>
+            <Button fx:id="shutdownRefreshBtn" text="Reset" onAction="#handleShutdownRefresh" styleClass="reset-btn"/>
+        </HBox>
+    </VBox>
+
+    <TableView fx:id="processTable" VBox.vgrow="ALWAYS" minHeight="200" styleClass="table-view">
+        <columns>
+            <TableColumn fx:id="pidColumn" text="PID" prefWidth="50"/>
+            <TableColumn fx:id="nameColumn" text="Name" prefWidth="120"/>
+            <TableColumn fx:id="stateColumn" text="State" prefWidth="90"/>
+            <TableColumn fx:id="burstTimeColumn" text="Burst" prefWidth="90"/>
+            <TableColumn fx:id="cpuTimeColumn" text="CPU Time" prefWidth="90"/>
+            <TableColumn fx:id="arrivalColumn" text="Arrival" prefWidth="90"/>
+            <TableColumn fx:id="responseTimeColumn" text="Response" prefWidth="90"/>
+            <TableColumn fx:id="turnaroundColumn" text="Turnaround" prefWidth="100"/>
+            <TableColumn fx:id="completionColumn" text="Completion" prefWidth="100"/>
+        </columns>
+        <placeholder>
+            <Label text="No processes added."/>
+        </placeholder>
+    </TableView>
+
+    <VBox spacing="5">
+        <Label text="Gantt Chart (Time is relative to scale)" styleClass="gantt-header"/>
+        <ScrollPane fitToHeight="true" fitToWidth="true" styleClass="gantt-scroll-pane">
+            <Pane fx:id="ganttChartPane" minHeight="120"/>
+        </ScrollPane>
+        <Label fx:id="statusLabel" text="Ready." styleClass="status-label"/>
+    </VBox>
+
+    <stylesheets>
+        <URL value="@processscheduler.css" />
+    </stylesheets>
+</VBox>

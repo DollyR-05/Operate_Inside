@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo.BrowserController">
+
+    <top>
+        <HBox spacing="8" alignment="CENTER_LEFT" styleClass="tool-bar">
+            <Button fx:id="backButton" text="←" onAction="#handleBack"/>
+            <Button fx:id="forwardButton" text="→" onAction="#handleForward"/>
+            <Button fx:id="refreshButton" text="⟳" onAction="#handleRefresh"/>
+            <Button fx:id="homeButton" text="🏠" onAction="#handleHome"/>
+
+            <TextField fx:id="addressBar" promptText="Enter URL..." HBox.hgrow="ALWAYS"/>
+
+            <Button fx:id="goButton" text="Go" onAction="#handleGo"/>
+        </HBox>
+    </top>
+
+    <center>
+        <WebView fx:id="webView"/>
+    </center>
+
+    <bottom>
+        <HBox spacing="8" alignment="CENTER_LEFT" styleClass="status-bar">
+            <ProgressBar fx:id="progressBar" prefWidth="300"/>
+            <Label fx:id="statusLabel" text="Ready"/>
+        </HBox>
+    </bottom>
+
+    <stylesheets>
+        <URL value="@browser.css" />
+    </stylesheets>
+</BorderPane>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.demo.ProcessManagerController"
+      spacing="15" alignment="CENTER" styleClass="root"> <HBox spacing="10" alignment="CENTER" styleClass="hbox"> <TextField fx:id="processNameField" promptText="Process Name" prefWidth="250"/>
+    <Button fx:id="startBtn" text="Start Process" onAction="#handleStart"/>
+    <Button fx:id="terminateBtn" text="Terminate Selected Process" onAction="#handleTerminateProcess"/>
+    <Button fx:id="shutdownBtn" text="Shutdown" onAction="#handleShutdown"/>
+</HBox>
+
+    <TableView fx:id="processTable" prefHeight="300" prefWidth="700" >
+        <columns>
+            <TableColumn fx:id="pidColumn" text="PID" prefWidth="60"/>
+            <TableColumn fx:id="nameColumn" text="Name" prefWidth="220"/>
+            <TableColumn fx:id="stateColumn" text="State" prefWidth="120"/>
+            <TableColumn fx:id="cpuTimeColumn" text="CPU Time (ms)" prefWidth="140"/>
+        </columns>
+        <placeholder>
+            <Label text="No processes running."/>
+        </placeholder>
+    </TableView>
+
+    <Label fx:id="statusLabel" text="Status messages here." prefWidth="700"/>
+
+    <Pane fx:id="ganttChartPane" prefHeight="150" prefWidth="700"/>
+
+    <stylesheets>
+        <URL value="@processmanager.css" />
+    </stylesheets>
+</VBox>
